@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BookController;
+use App\Models\Book;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [BookController::class, 'index']);
+Route::get('/categories', function () {
+    $books = Book::all();
+    return view("categories")->with(["books" => $books]);
+});
+
+Route::get('/admin', function () {
+
+    return view("admin.dash");
 });
 
 Auth::routes();
+
+// Auth::user()->email == "test" ?  view('welcome') :  view('welcome');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
