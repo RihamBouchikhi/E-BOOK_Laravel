@@ -9,12 +9,11 @@
     <style>
         .background-image {
             position: relative;
-            background-image: url('images/book.png');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('images/book.png');
             /* Adjust the following properties to fit your design */
             background-size: cover;
-            background-repeat: no-repeat;
             background-position: center;
-            height: 100vh;
         }
 
         .dark-overlay {
@@ -57,19 +56,24 @@
 </head>
 
 <body class="background-image">
-    <div class="dark-overlay"></div>
-    <div class="row">
-        <div class="container">
-            <div class="collo justify-content-start  text-white ">
-                <p>test test test test test</p>
+    <div class="row mt-5">
+        <div class=" col-md-6 ">
+            <div class="collo d-flex justify-content-center align-items-center h-100 p-5">
+                <div class="p-5 bg-light rounded-3  shadow-lg ">
+                    <div class="container-fluid py-5 text-center">
+                        <h1 class="display-5 fw-bold">Bienvenue</h1>
+                        <p class="fs-4 ">blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla </p>
+                        <a href="/" class=" btn btn-success shadow">cliquez-ici</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row justify-content-end  ">
-                <div class="col-md-5 m-5 ">
-                    <div class="card shadow bg-light custom-container text-center ">
+        <div class=" col-md-6">
+            <div class="justify-content-end  ">
+                <div class="p-5">
+                    <div class="card shadow-lg bg-light custom-container text-center ">
                         <div class="card-header ">{{ __('Connectez-vous pour découvrir 
-le moyenle plus efficace dans 
+le moyen le plus efficace dans 
 notre librairie en ligne.') }}</div>
 
                         <div class="card-body  bg-light custom-container m-5">
@@ -105,11 +109,11 @@ notre librairie en ligne.') }}</div>
                                 </div>
 
                                 <div class="row mb-3 ">
-                                    <div class="col-md-6 offset-md-3">
+                                    <div class="col-md-7 offset-md-3">
 
                                         @if (Route::has('password.request'))
-                                        <a class="btn btn-link text-brown" href="{{ route('password.request') }}">
-                                            {{ __('Mot de passe oublie ?') }}
+                                        <a class="btn btn-link text-brown" href="{{ route('register') }}">
+                                            {{ __("Vous n'avez pas de compte ? inscrivez-vous") }}
                                         </a>
                                         @endif
 
@@ -117,9 +121,9 @@ notre librairie en ligne.') }}</div>
                                 </div>
 
 
-                                <div class="row my-2 mx-auto d-flex justify-content-center">
+                                <div class="row my-2 ps-5 mx-auto d-flex justify-content-center">
                                     <button type="submit" class="col-md-4 btn btn-primary custom-button">
-                                        {{ __('Login') }}
+                                        {{ __('Se connecter') }}
                                     </button>
 
                                 </div>

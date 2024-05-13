@@ -30,7 +30,20 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $file = $request->file('file');
+        dd($request);
+        $fileName = $file->getClientOriginalName();
+        $filePath = $file->storeAs('books', $fileName);
+
+        $book = new Book();
+        $book->name = $request->name;
+        $book->category = $request->category;
+        $book->file_path = $filePath;
+        $book->save();
+
+
+        $book->save();
     }
 
     /**

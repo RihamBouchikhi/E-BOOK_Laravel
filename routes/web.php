@@ -16,7 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [BookController::class, 'index']);
+Route::resource('/books', BookController::class);
+Route::get('/clients', function () {
+    return view("clients");
+});
+Route::get('/livres', function () {
+    return view("livres");
+});
+
+
+
 Route::get('/categories', function () {
     $books = Book::all();
     return view("categories")->with(["books" => $books]);
